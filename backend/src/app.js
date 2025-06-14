@@ -27,7 +27,22 @@ app.use(cookieParser());
 connectDB();
 
 
-// TODO add routes here
+
+app.get("/name", (req, res)=>{
+
+  res.json({name:"kaushik"})
+
+})
+
+
+
+app.get("/age", (req, res)=>{
+
+  res.json({age: 25})
+
+})
+
+
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 

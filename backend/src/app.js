@@ -6,6 +6,7 @@ import { fileURLToPath } from "url";
 import morgan from "morgan"; // Import morgan
 import connectDB from "./db/dbConnect.js";
 import { config } from "./config.js";
+import authRouter from "./routes/authRouter.js";
 const app = express();
 
 // middlewares
@@ -28,20 +29,7 @@ connectDB();
 
 
 
-app.get("/name", (req, res)=>{
-
-  res.json({name:"kaushik"})
-
-})
-
-
-
-app.get("/age", (req, res)=>{
-
-  res.json({age: 25})
-
-})
-
+app.use("/api/auth", authRouter);
 
 
 app.use(express.static(path.join(__dirname, "../../frontend/dist")));
